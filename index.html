@@ -15,10 +15,13 @@
      <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="My Portfolio | Abhinav">
     <meta name="twitter:description" content="Full stack developer specializing in React, Node.js, and modern web technologies. Available for freelance projects and collaborations.">
-    <meta name="twitter:image" content="images/profile.jpg">   
+    <meta name="twitter:image" content="images/profile.jpg">  
+
+
     <!-- Favicon--> 
     <link rel="icon" type="image/png" href="images/favicon.jpg1.png">
-    <link rel="stylesheet" href="styles.css">
+    
+    
 
 </head>
 <body>
@@ -42,10 +45,11 @@
     <section id="about">
         <h2>About me</h2>
         <figure>
-          <img src="profile.jpg" alt="Abhinav's Profile picture" width="200" height="200">
+          <img src="images/profile.jpg" alt="Abhinav's Profile picture" width="200" height="200">
+          <figcaption>I love creating responsive and user-friendly websites. </figcaption>
         </figure>
 
-        <figI love building things on the web, currently learning HTML, CSS, Javascript and React.</p>
+        <p> love building things on the web, currently learning HTML, CSS, Javascript and React.</p>
          <ol>
             <li>Web Development</li>
             <li>UI/UX Design</li>
@@ -65,20 +69,24 @@
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-card">
-            <h3>Project 1</h3>
-            <p>A simple web application built using HTML, CSS, and JavaScript.</p>
-            <a href="#" class="btn">View Project</a>
-            <h3>Project 2</h3>
-            <p>A more advanced web application built using React and Node.js.</p>
-            <a href="#" class="btn">View Project</a>
-            <h3>Project 3</h3>
-            <p>A full-stack web application built using MERN stack.</p>
-            <a href="#" class="btn">View Project</a>
-        </div>
-    </section>
+        <section id="projects" class="projects-section">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card" data-category="web">
+                    <img src="project1.jpg" alt="Weather App screenshot">
+                    <div class="project-card-body">
+                        <h3>Weather App</h3>
+                    <p>Real-time weather dashboard using OpenWeather API</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">API</span>
+                    </div>
+                    <a href="#" class="btn">Live Demo</a>
+                    <a href="#" class="btn">GitHub</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact">
@@ -103,9 +111,8 @@
         </form>
             
         <p> Email: <a href="mailto:babhinavznaidu@gmail.com">babhinavznaidu@gmail.com</a></p>
-        <p> Phone: +91 9632048086</p>
-        <p> LinkedIn: <a href="https://www.linkedin.com/in/b-abhinav-naidu-6a9424336/" target="_blank">B Abhinav Naidu</a></p>
         <p> GitHub: <a href="https://github.com/Abhi-saber" target="_blank">Abhi-saber</a></p>
+        <p> LinkedIn: <a href="https://www.linkedin.com/in/b-abhinav-naidu-6a9424336/" target="_blank">B Abhinav Naidu</a></p>
 
     <!-- FOOTER -->
     <footer>

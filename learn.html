@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform & Transition Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            text-align: center;
+        }
+        h1 { color: #0f172a; margin-bottom: 40px; }
+       
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+ 
+        .card {
+            background: white;
+            width: 200px;
+            height: 250px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #334155;
+            cursor: pointer;
+           
+            /* THE MAGIC LINE */
+            transition: all 0.4s ease;
+        }
+ 
+        /* Hover Effects */
+        .card.lift:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            background: #3b82f6;
+            color: white;
+        }
+ 
+        .card.grow:hover {
+            transform: scale(1.15);
+            background: #10b981;
+            color: white;
+        }
+ 
+        .card.rotate:hover {
+            transform: rotate(15deg) scale(1.1);
+            background: #f59e0b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+ 
+    <h1>Hover over the cards to see Transitions + Transforms!</h1>
+   
+    <div class="container">
+        <div class="card lift">
+            <p>Lift & Shadow</p>
+            <p style="font-size: 0.9rem; font-weight: normal; margin-top: 10px;">translateY(-20px)</p>
+        </div>
+       
+        <div class="card grow">
+            <p>Grow (Scale)</p>
+            <p style="font-size: 0.9rem; font-weight: normal; margin-top: 10px;">scale(1.15)</p>
+        </div>
+       
+        <div class="card rotate">
+            <p>Rotate & Grow</p>
+            <p style="font-size: 0.9rem; font-weight: normal; margin-top: 10px;">rotate(15deg)</p>
+        </div>
+    </div>
+ 
+</body>
+</html>
