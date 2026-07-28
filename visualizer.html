@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods Superpowers</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 { margin-bottom: 10px; color: #0f172a; }
+        p.subtitle { margin-bottom: 30px; color: #64748b; font-size: 1.1rem; }
+       
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+ 
+        .array-display {
+            display: flex;
+            gap: 15px;
+            padding: 20px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            min-height: 100px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+ 
+        .array-item {
+            background: #3b82f6;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+ 
+        /* Specific colors for specific numbers to make finding/filtering obvious */
+        .array-item.adult { background: #10b981; } /* Green for 18+ */
+        .array-item.child { background: #ef4444; } /* Red for < 18 */
+ 
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+ 
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+        button:active { transform: scale(0.95); }
+       
+        .btn-reset { background: #64748b; color: white; }
+        .btn-map { background: #8b5cf6; color: white; }
+        .btn-filter { background: #f59e0b; color: white; }
+        .btn-find { background: #0ea5e9; color: white; }
+ 
+        .code-snippet {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        .highlight { color: #38bdf8; }
+    </style>
+</head>
+<body>
+ 
+    <h1>JavaScript Array Methods</h1>
+    <p class="subtitle">Watch how the data changes based on the method used!</p>
+ 
+    <div class="container">
+       
+        <div class="controls">
+            <button class="btn-reset" onclick="resetArray()">Reset Data</button>
+            <button class="btn-map" onclick="runMap()">.map (Square numbers)</button>
+            <button class="btn-filter" onclick="runFilter()">.filter (Keep 18+)</button>
+            <button class="btn-find" onclick="runFind()">.find (First exactly 25)</button>
+        </div>
+ 
+        <h3>Current Array:</h3>
+        <div class="array-display" id="output">
+            <!-- Items injected here by JS -->
+        </div>
+ 
+        <h3>Code Executed:</h3>
+        <div class="code-snippet" id="code-output">
+            const ages = [15, 20, 12, 25, 18];
+        </div>
+    </div>
+ 
+    <script>
+        // Our starting data
+        const originalData = [15, 20, 12, 25, 18];
+       
+        // Function to draw array to screen
+        function renderArray(arr, colorCode = false) {
+            const output = document.getElementById('output');
+            output.innerHTML = ''; // clear current
+ 
+            // If it's a single value (from .find), wrap it in an array to render
+            const dataToRender = Array.isArray(arr) ? arr : (arr ? [arr] : ["Not Found"]);
+ 
+            dataToRender.forEach(num => {
+                const div = document.createElement('div');
+                div.className = 'array-item';
+                div.textContent = num;
+                console.log("Num", num);
+                // Add color classes if requested
+                if (colorCode && num !== "Not Found") {
+                    div.classList.add(num >= 18 ? 'adult' : 'child');
+                }
+               
+                output.appendChild(div);
+            });
+        }
+ 
+        // 1. Reset
+        function resetArray() {
+            renderArray(originalData, false);
+            document.getElementById('code-output').innerHTML = "const ages = [15, 20, 12, 25, 18];";
+        }
+ 
+        // 2. Map (Transform)
+        function runMap() {
+            const result = originalData.map(num => num * num);
+            renderArray(result, false);
+            document.getElementById('code-output').innerHTML = "const result = ages.<span class='highlight'>map</span>(num => num * num);";
+        }
+ 
+        // 3. Filter (Sift)
+        function runFilter() {
+            const result = originalData.filter(num => num >= 18);
+            renderArray(result, true); // True to color code adults vs kids
+            document.getElementById('code-output').innerHTML = "const result = ages.<span class='highlight'>filter</span>(num => num >= 18);";
+        }
+ 
+        // 4. Find (Detective)
+        function runFind() {
+            const result = originalData.find(num => num === 25);
+            renderArray(result, true);
+            document.getElementById('code-output').innerHTML = "const result = ages.<span class='highlight'>find</span>(num => num === 25);";
+        }
+ 
+        // Initialize on load
+        resetArray();
+    </script>
+</body>
+</html>

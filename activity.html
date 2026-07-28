@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin: 30px; border: 5px solid black;">
+        <h1>Activity</h1>
+        <form>
+            <input type="text" id="inputBox" placeholder="Enter your name" required >
+            <button type="submit">Submit</button>
+        </form>
+        </div>
+        <script>
+            const demoButton = document.querySelector('#submit-btn');
+            const nameInput = document.querySelector('#name-input');
+            demobutton.addEventListener('click', (event) => {
+             alert('Button is clicked!');
+             event.preventDefault(); // Prevent form submission
+             console.log('Name Entered:', nameInput.value);
+            });
+        </script>
+    
+</body>
+</html>
